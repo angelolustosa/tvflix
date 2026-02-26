@@ -18,16 +18,16 @@ fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', {
         const cardsMovies = data.results.map(function (i) {
             const card = `
             <div class="col-6 col-sm-4 col-md-3 mb-4">
-                <div class="movie-card">
+                <div class="movie-card" onclick="goToDetails(${i.id})">
                     <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/${i.poster_path}"
                         class="card-img-top" alt="${i.original_title}">
                     <div class="card-body movie-info">
                         <div class="movie-title">${i.original_title}</div>
-                        <div class="movie-date">${i.release_date}</div>
+                        <div class="movie-date">${formatDate(i.release_date)}</div>
                     </div>
                 </div>
             </div>`
-            
+
             console.log(card)
 
             /* += ele adiciona cada item, mantendo o anterior, ou seja, adciona um após o  outro sem sobrescrever */
@@ -72,3 +72,23 @@ fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', {
     .catch(function (error) {
         console.error('Error:', error);
     });
+
+function formatDate(dateString) {
+    const [year, month, day] = dateString.split('-');
+    return `${day}/${month}/${year}`;
+
+    /* 
+    Forma convencional
+
+    const date =  '2026-01-20';
+
+    const stringDate = date.split('-');
+
+    console.log(stringDate);
+    console.log(`${stringDate[2]}/${stringDate[1]}/${stringDate[0]}`);
+    */
+};
+
+function goToDetails(id) {
+    window.location.href = `detalhe.html?id=${id}`;
+}
