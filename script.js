@@ -18,7 +18,7 @@ fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', {
         const cardsMovies = data.results.map(function (i) {
             const card = `
             <div class="col-6 col-sm-4 col-md-3 mb-4">
-                <div class="movie-card" onclick="goToDetails(${i.id})">
+                <div class="movie-card" onclick="goToDetails(${i.id})" style="cursor: pointer;">
                     <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/${i.poster_path}"
                         class="card-img-top" alt="${i.original_title}">
                     <div class="card-body movie-info">
@@ -90,5 +90,5 @@ function formatDate(dateString) {
 };
 
 function goToDetails(id) {
-    window.location.href = `detalhe.html?id=${id}`;
+    window.location.href = `detalhe_filme.html?id=${id}`;
 }

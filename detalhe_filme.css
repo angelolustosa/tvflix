@@ -1,0 +1,67 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #032541 !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #01b4e4 !important;
+}
+
+.navbar-nav .nav-link {
+    color: #ffffff !important;
+    margin-left: 1rem;
+}
+
+
+/* Degradê escuro estilo cinema */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(to right,
+            rgba(0, 0, 0, 0.9) 20%,
+            rgba(0, 0, 0, 0.6) 50%,
+            rgba(0, 0, 0, 0.9) 100%);
+    z-index: -1;
+}
+
+.poster-img {
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+.rating-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #081c22;
+    border: 2px solid #21d07a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #21d07a;
+}
+
+.movieTitle {
+    color: whitesmoke;
+}
